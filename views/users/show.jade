@@ -1,0 +1,14 @@
+h1 #{user.name}
+
+ul
+	li User Name: #{user.username}
+	li Email: #{user.email}
+	li Password: #{user.password}
+
+ul
+	li: a(href="/users/#{user.name}/edit") Edit
+	li
+		form(action="/users/#{user.name}" method="POST")
+			input(type="hidden", name="_method", value="DELETE")
+			button(type="submit") Delete
+p: a(href="/users/logout") Logout

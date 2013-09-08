@@ -1,0 +1,13 @@
+h1 Edit User
+
+form(method="POST" action="/users/#{user.name}")
+	input(type="hidden", name="_method", value="PUT")
+	p
+		input#name(type="text", name="name", value="#{user.name}", placeholder="Name")
+	p
+		input#name(type="text", name="username", value="#{user.username}", placeholder="User Name")
+	p
+		input#email(type="email", name="email", value="#{user.email}", placeholder="Email")
+	p
+		input#password(type="number", name="password", value="#{user.password}", placeholder="Password")
+	p: button(type="submit") Update

@@ -1,0 +1,22 @@
+fieldset
+	legend="New ? Sign up"
+	form(method="POST" action="/users")
+		p 
+			input#name(type="text", name="name", placeholder="Name")
+		p 
+			input#name(type="text", name="username", placeholder="Username")
+		p
+			input#email(type="email", name="email", placeholder="Email")	
+		p
+			input#password(type="password", name="password", placeholder="Password")
+				
+		p: button(type="submit") Sign up
+
+fieldset
+	legend="Log in"
+	form(method="POST" action="/users/login")
+		p 
+			input#username(type="text", name="username", placeholder="User Name")
+		p
+			input#password(type="password", name="password", placeholder="Password")
+		p: button(type="submit") Sign in
