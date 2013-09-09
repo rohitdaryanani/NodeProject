@@ -3,7 +3,7 @@ extends layout
 block content
 	div(id="main-container", class="offset5")
 		form(method="POST" action="/users", class="well span4")
-			p New to Twitter? Sign up
+			p New ? Sign up
 			p 
 				input#name(type="text", name="name", placeholder="Name")
 			p 
@@ -14,6 +14,8 @@ block content
 				input#password(type="password", name="password", placeholder="Password")
 					
 			p: button(type="submit", class="btn btn-primary btn-small") Sign up
+			| Note Name and User name must be unique please see list of 
+			a(href='/users') existing users
 
 		form(method="POST" action="/users/login", class="well span4")
 			p 

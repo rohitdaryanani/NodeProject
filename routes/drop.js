@@ -6,6 +6,6 @@ var models = mongoose.models;
 exports.delete = function(req, res) {
 	var Users = models.Users;
 	Users.remove({name: req.params.name}, function(err) {
-		res.redirect("/users");
+		res.redirect("/");
 	});
 };

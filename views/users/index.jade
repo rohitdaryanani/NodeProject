@@ -1,5 +1,9 @@
-h1 All Users
+extends layout
 
-ul
-	each user in users
-		li: a(href="/users/#{user.name}") #{user.name} (#{user.email})
+block content
+	div(id="main-container" class="well")	
+		h1 All Users
+		ul(class= "nav nav-list")
+			each user in users
+				li Name: #{user.name} and Username: (#{user.username})
+		a(href="/") Back Home

@@ -1,8 +1,8 @@
 extends layout
 
 block content
-	div(class="well")	
-		h1 #{user.name}
+	div(class="well span9 offset3")	
+		h1 Welcome #{user.name}
 		p: a(href="/users/logout") Logout
 
 	div(id="main-container" class="offset5")
@@ -10,13 +10,13 @@ block content
 			li User Name: #{user.username}
 			li Email: #{user.email}
 			li Password: #{user.password}
-			li
 				i(class="icon-home icon-white")
-				a(href="/users/#{user.name}/edit") Edit
+				p
+				a(href="/users/#{user.name}/edit") Edit Profile
 			li
 				form(action="/users/#{user.name}" method="POST")
 					input(type="hidden", name="_method", value="DELETE")
-					button(type="submit", class="btn btn-danger") Delete
+					button(type="submit", class="btn btn-danger") Delete Profile
 
 		
 	
@@ -25,6 +25,5 @@ block content
 		div(class="well span3")
 			legend="Repo Count"
 			form(method="POST" action="/users/count")
-				p 
 					input#name(type="text", name="name", placeholder="GitHub User Name")
-				p: button(type="submit", class="btn btn-info") Count
+					button(type="submit", class="btn btn-info") Count
