@@ -1,0 +1,14 @@
+<style type="text/css">
+	#container {
+		clear: both;
+	}
+	#main-container {
+		margin: 0 auto;
+		clear: both;
+		width: 500px;
+	}
+
+	body{
+		background-color: #2D2D2D;
+	}
+</style>

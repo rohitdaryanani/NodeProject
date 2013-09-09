@@ -1,22 +1,23 @@
-fieldset
-	legend="New ? Sign up"
-	form(method="POST" action="/users")
-		p 
-			input#name(type="text", name="name", placeholder="Name")
-		p 
-			input#name(type="text", name="username", placeholder="Username")
-		p
-			input#email(type="email", name="email", placeholder="Email")	
-		p
-			input#password(type="password", name="password", placeholder="Password")
-				
-		p: button(type="submit") Sign up
+extends layout
 
-fieldset
-	legend="Log in"
-	form(method="POST" action="/users/login")
-		p 
-			input#username(type="text", name="username", placeholder="User Name")
-		p
-			input#password(type="password", name="password", placeholder="Password")
-		p: button(type="submit") Sign in
+block content
+	div(id="main-container", class="offset5")
+		form(method="POST" action="/users", class="well span4")
+			p New to Twitter? Sign up
+			p 
+				input#name(type="text", name="name", placeholder="Name")
+			p 
+				input#name(type="text", name="username", placeholder="Username")
+			p
+				input#email(type="email", name="email", placeholder="Email")	
+			p
+				input#password(type="password", name="password", placeholder="Password")
+					
+			p: button(type="submit", class="btn btn-primary btn-small") Sign up
+
+		form(method="POST" action="/users/login", class="well span4")
+			p 
+				input#username(type="text", name="username", placeholder="User Name")
+			p
+				input#password(type="password", name="password", placeholder="Password")
+			p: button(type="submit", class="btn btn-warning btn-small") Sign in

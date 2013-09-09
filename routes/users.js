@@ -17,14 +17,14 @@ exports.create = function(req, res) {
 	var b = req.body;
 
 	var u = new Users({
-		name: b.name,
+		name: b.name.trim(),
 		username: b.username,
 		email: b.email,
 		password: b.password
 		//password: crypto.createHash("sha1").update(b.password).digest("base64")
 	});
 	u.save(function(err, user) {
-		if (err) res.json(err);
+		if (err) return res.render('./users/invalid', { title: "Something went wrong please try again" });
 
 		res.redirect("/users/" + user.name);
 	});

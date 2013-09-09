@@ -5,18 +5,23 @@ exports.init = function() {
 	var UserSchema = mongoose.Schema({
 		name: {
 			type: String,
-			required: true
+			required: true,
+			trim: true,
+			match: /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/
 		},
 		username: {
 			type: String,
 			required: true,
-			unique: true
+			trim: true,
+			unique: true,
+			match: /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/
 		},
 		email: {
 			type: String,
 			lowercase: true,
 			required: true,
-			unique: true
+			trim: true,
+			match: /^[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
 		},
 		password: {
 			type: String,

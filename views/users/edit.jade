@@ -1,13 +1,17 @@
-h1 Edit User
+extends layout
 
-form(method="POST" action="/users/#{user.name}")
-	input(type="hidden", name="_method", value="PUT")
-	p
-		input#name(type="text", name="name", value="#{user.name}", placeholder="Name")
-	p
-		input#name(type="text", name="username", value="#{user.username}", placeholder="User Name")
-	p
-		input#email(type="email", name="email", value="#{user.email}", placeholder="Email")
-	p
-		input#password(type="number", name="password", value="#{user.password}", placeholder="Password")
-	p: button(type="submit") Update
+block content
+	div(id="main-container", class="offset5")
+
+		form(method="POST" action="/users/#{user.name}", class="well span4")
+			input(type="hidden", name="_method", value="PUT")
+			h1 Edit Profile
+			p
+				input#name(type="text", name="name", value="#{user.name}", placeholder="Name")
+			p
+				input#name(type="text", name="username", value="#{user.username}", placeholder="User Name")
+			p
+				input#email(type="email", name="email", value="#{user.email}", placeholder="Email")
+			p
+				input#password(type="number", name="password", value="#{user.password}", placeholder="Password")
+			p: button(type="submit", , class="btn btn-primary btn-small") Update

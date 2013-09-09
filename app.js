@@ -97,6 +97,8 @@ var update = require("./routes/update");
 var drop = require("./routes/drop");
 var login = require("./routes/login");
 var logout = require("./routes/logout");
+var wildcard = require("./routes/wildcard");
+var count = require("./routes/count");
 
 // Welcome page 
 app.get("/", index.welcome);
@@ -112,7 +114,11 @@ app.post("/users/login", login.page);
 
 app.param('name', function(req, res, next, name) {
 	Users.find({name: name}, function(err, docs) {
-		req.user = docs[0];
+		if (req.user) {
+			if (name === req.user.name) {
+				req.user = docs[0];
+			}
+		}
 
 		next();
 	});
@@ -139,6 +145,7 @@ app.put("/users/:name", function(req, res) {
 		password: b.password},
 		//password: crypto.createHash("sha1").update(b.password).digest("base64")},
 		function(err) {
+			if (err) return res.render('./users/invalid', { title: "Something went wrong please try again" });
 			res.redirect("/users/" + b.name);
 		}
 	);
@@ -146,6 +153,12 @@ app.put("/users/:name", function(req, res) {
 
 // Delete
 app.delete("/users/:name", drop.delete);
+
+// Catches invalid url links
+app.get('/:wildcard', wildcard.redirect);
+
+//count
+app.post("/users/count", count.count);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
