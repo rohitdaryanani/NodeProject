@@ -139,14 +139,14 @@ app.put("/users/:name", function(req, res) {
 	var b = req.body;
 
 	Users.update({name: req.params.name},{
-		name: b.name,
-		username: b.username,
+		 name: req.user.name,
+		// username: b.username,
 		email: b.email,
 		password: b.password},
 		//password: crypto.createHash("sha1").update(b.password).digest("base64")},
 		function(err) {
 			if (err) return res.render('./users/invalid', { title: "Something went wrong please try again" });
-			res.redirect("/users/" + b.name);
+			res.redirect("/users/" + req.user.name);
 		}
 	);
 });
