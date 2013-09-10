@@ -24,6 +24,6 @@ block content
 	fieldset
 		div(class="well span3")
 			legend="Repo Count"
-			form(method="POST" action="/users/count")
+			form(method="POST" action="/users/count", id="myform")
 					input#name(type="text", name="name", placeholder="GitHub User Name")
 					button(type="submit", class="btn btn-info") Count
